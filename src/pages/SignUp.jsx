@@ -5,6 +5,7 @@ import visibilityIcon from '../assets/svg/visibilityIcon.svg';
 import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 import {db} from '../firebase.config';
 import {setDoc, doc, serverTimestamp} from 'firebase/firestore';
+import {toast} from "react-toastify";
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -48,7 +49,7 @@ const SignUp = () => {
 
             navigate('/');
         } catch (e) {
-            console.log(e);
+            toast.error('Something went wrong with the registration')
         }
     };
 
